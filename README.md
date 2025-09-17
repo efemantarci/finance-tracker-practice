@@ -21,7 +21,7 @@ Practice Database Project for My Exam Practice
 - [ ] Write basic CRUD queries
 
 ### 3. Application Development
-- [ ] Set up project structure
+- [X] Set up project structure
 - [ ] Implement user authentication
 - [ ] Create transaction management features
 - [ ] Add category management
@@ -43,7 +43,8 @@ Practice Database Project for My Exam Practice
 - Frontend: *(Will be added after design phase)*
 
 ## Setup Instructions
-*(Will be added after implementation)*
+Add DB_PASSWORD and DB_USERNAME environment variables according to you MySQL server.
+Initialize database on MySQL using `source init.sql`
 
 ## Example Queries
 *(Will be added during development)*
