@@ -10,7 +10,7 @@ Practice Database Project for My Exam Practice
 ## Plan
 
 ### 1. Database Design
-- [ ] Design database schema (users, transactions, categories, budgets tables)
+- [X] Design database schema (users, transactions, categories, budgets tables)
 - [ ] Write CREATE TABLE statements with proper constraints
 - [ ] Define relationships and foreign keys
 
