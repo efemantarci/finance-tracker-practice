@@ -11,12 +11,12 @@ Practice Database Project for My Exam Practice
 
 ### 1. Database Design
 - [X] Design database schema (users, transactions, categories, budgets tables)
-- [ ] Write CREATE TABLE statements with proper constraints
-- [ ] Define relationships and foreign keys
+- [X] Write CREATE TABLE statements with proper constraints
+- [X] Define relationships and foreign keys
 
 ### 2. Database Setup
-- [ ] Set up PostgreSQL/MySQL database
-- [ ] Create database and tables
+- [X] Set up PostgreSQL/MySQL database
+- [X] Create database and tables
 - [ ] Insert sample data for testing
 - [ ] Write basic CRUD queries
 
