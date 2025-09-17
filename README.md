@@ -17,12 +17,12 @@ Practice Database Project for My Exam Practice
 ### 2. Database Setup
 - [X] Set up PostgreSQL/MySQL database
 - [X] Create database and tables
-- [ ] Insert sample data for testing
-- [ ] Write basic CRUD queries
+- [X] Insert sample data for testing
+- [X] Write basic CRUD queries
 
 ### 3. Application Development
-- [ ] Set up project structure
-- [ ] Implement user authentication
+- [X] Set up project structure
+- [X] Implement user authentication
 - [ ] Create transaction management features
 - [ ] Add category management
 - [ ] Implement budget tracking
@@ -43,7 +43,8 @@ Practice Database Project for My Exam Practice
 - Frontend: *(Will be added after design phase)*
 
 ## Setup Instructions
-*(Will be added after implementation)*
+Add DB_PASSWORD and DB_USERNAME environment variables according to you MySQL server.
+Initialize database on MySQL using `source init.sql`
 
 ## Example Queries
 *(Will be added during development)*

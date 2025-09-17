@@ -26,4 +26,7 @@ CREATE TABLE transactions (
     PRIMARY KEY (transaction_id),
     FOREIGN KEY (user) REFERENCES users(username),
     FOREIGN KEY (category_id) REFERENCES transaction_categories(category_id)
-)
+);
+
+-- Insert dummy data
+INSERT INTO users(username,password_hash) VALUES ("dummy","test");
