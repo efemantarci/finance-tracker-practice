@@ -17,12 +17,12 @@ Practice Database Project for My Exam Practice
 ### 2. Database Setup
 - [X] Set up PostgreSQL/MySQL database
 - [X] Create database and tables
-- [ ] Insert sample data for testing
-- [ ] Write basic CRUD queries
+- [X] Insert sample data for testing
+- [X] Write basic CRUD queries
 
 ### 3. Application Development
 - [X] Set up project structure
-- [ ] Implement user authentication
+- [X] Implement user authentication
 - [ ] Create transaction management features
 - [ ] Add category management
 - [ ] Implement budget tracking
