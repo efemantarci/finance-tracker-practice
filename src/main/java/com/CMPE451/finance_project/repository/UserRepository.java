@@ -68,6 +68,17 @@ public class UserRepository {
         return result > 0;
     }
 
+    // Update user (full update)
+    public boolean updateUser(User user) {
+        int result = jdbcTemplate.update(
+                "UPDATE users SET password_hash = ?, budget = ? WHERE username = ?",
+                user.getPasswordHash(),
+                user.getBudget(),
+                user.getUsername()
+        );
+        return result > 0;
+    }
+
     // Check if username exists
     public boolean userExists(String username) {
         Integer count = jdbcTemplate.queryForObject(

@@ -27,7 +27,7 @@ public class TransactionService {
     @Autowired
     TransactionRepository transactionRepository;
 
-    ResponseEntity<TransactionWithDetails> getTransaction(int transactionId) {
+    public ResponseEntity<TransactionWithDetails> getTransaction(int transactionId) {
         Optional<Transaction> transactionOpt = transactionRepository.getTransaction(transactionId);
         if (transactionOpt.isEmpty()) {
             return ResponseEntity.notFound().build();
