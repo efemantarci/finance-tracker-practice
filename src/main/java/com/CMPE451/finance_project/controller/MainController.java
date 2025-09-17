@@ -12,16 +12,6 @@ public class MainController {
 
     @GetMapping("/")
     String dummyQuery(){
-        try {
-            jdbcTemplate.query("SELECT * FROM users WHERE username = ?",
-                    (rs, rowNum) -> {
-                        System.out.println("Found user: " + rs.getString("username"));
-                        return rs.getString("username");
-                    },
-                    "dummy");
-            return "Database connection successful";
-        } catch (Exception e) {
-            return "Database error: " + e.getMessage();
-        }
+        return "dummy response";
     }
 }
