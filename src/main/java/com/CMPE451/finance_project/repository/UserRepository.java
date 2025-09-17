@@ -16,7 +16,7 @@ public class UserRepository {
     private JdbcTemplate jdbcTemplate;
 
     // Get user by username
-    Optional<User> getUser(String username){
+    public Optional<User> getUser(String username){
         try {
             User user = jdbcTemplate.queryForObject(
                     "SELECT username, password_hash, budget FROM users WHERE username = ?",
