@@ -67,7 +67,7 @@ public class UserService {
     }
 
     // Get user profile
-    public ResponseEntity<User> getUserProfile(String username) {
+    public ResponseEntity<User> getUser(String username) {
         Optional<User> userOpt = userRepository.getUser(username);
         if (userOpt.isPresent()) {
             return ResponseEntity.ok(userOpt.get());
@@ -116,6 +116,57 @@ public class UserService {
         }
     }
 
+    // Update user (full update)
+    public ResponseEntity<String> updateUser(String username, String newPassword, BigDecimal newBudget) {
+        if (!userRepository.userExists(username)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Optional<User> userOpt = userRepository.getUser(username);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        User user = userOpt.get();
+
+        // Update budget if provided
+        if (newBudget != null) {
+            if (newBudget.compareTo(BigDecimal.ZERO) < 0) {
+                return ResponseEntity.badRequest().body("Budget must be non-negative");
+            }
+            user.setBudget(newBudget);
+        }
+
+        // Update password if provided
+        if (newPassword != null) {
+            if (newPassword.length() < 6) {
+                return ResponseEntity.badRequest().body("Password must be at least 6 characters");
+            }
+            user.setPasswordHash(hashPassword(newPassword));
+        }
+
+        boolean updated = userRepository.updateUser(user);
+        if (updated) {
+            return ResponseEntity.ok("User updated successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to update user");
+        }
+    }
+
+    // Delete user
+    public ResponseEntity<String> deleteUser(String username) {
+        if (!userRepository.userExists(username)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        boolean deleted = userRepository.deleteUser(username);
+        if (deleted) {
+            return ResponseEntity.ok("User deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete user");
+        }
+    }
+
     // Check if username is available
     public ResponseEntity<Boolean> isUsernameAvailable(String username) {
         if (username == null || username.trim().isEmpty()) {
@@ -124,6 +175,16 @@ public class UserService {
 
         boolean available = !userRepository.userExists(username);
         return ResponseEntity.ok(available);
+    }
+
+    // Check if user exists
+    public ResponseEntity<Boolean> userExists(String username) {
+        if (username == null || username.trim().isEmpty()) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        boolean exists = userRepository.userExists(username);
+        return ResponseEntity.ok(exists);
     }
 
     private String hashPassword(String password) {
